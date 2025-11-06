@@ -455,8 +455,8 @@ export default function MediaEditor() {
               {/* Caption */}
               <div className="mb-4">
                 <textarea
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
+                  // value={content}
+                  // onChange={(e) => setContent(e.target.value)}
                   placeholder="Write a caption... (max 2200 words)"
                   className="w-full h-32 md:h-40 p-2 border border-gray-300 rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
