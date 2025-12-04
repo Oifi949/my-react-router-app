@@ -14,21 +14,17 @@ export type post = {
   advance_settings?: AdvanceSettings | null;
   created_at?: string | Date | null;
   updated_at?: string | Date | null;
-  author: {
+  user_profile: {
+    id: string;
+    created_at: string;
+    updated_at: string;
+    email: string;
     username: string;
+    fullName: string;
     image: string;
-  };
-};
+    auth_user: string;
 
-export type UserProfile = {
-  id: string;
-  created_at: string;
-  updated_at: string;
-  email: string;
-  username: string;
-  fullName: string;
-  image: string;
-  auth_user: string;
+  };
 };
 
 export type UserMetadata = {

@@ -105,7 +105,6 @@ export default function MediaEditor() {
 
     if (!content.trim()) {
       console.warn("Post content is empty.");
-      return;
     }
 
     if (content.length > maxText) {

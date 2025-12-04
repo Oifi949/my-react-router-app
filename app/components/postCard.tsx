@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import type { post } from "~/../src/types";
-import type { UserProfile } from "~/../src/types";
+type user_profile = {
+  id?: string;
+  username?: string;
+  image?: string;
+};
 import {
   FaHeart,
   FaRegHeart,
@@ -32,7 +36,7 @@ type Comment = {
 };
 
 type PostWithProfile = post & {
-  user_profile: UserProfile;
+  user_profile: user_profile;
 };
 
 type PostCardProps = {
@@ -325,12 +329,12 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
       <div className="flex items-center justify-between px-4 pt-4 pb-2">
         <div className="flex items-center gap-3">
           <img
-            src={user_profile?.image}
-            alt={user_profile?.username}
+            src={post.user_profile?.image}
+            alt={post.user_profile?.username}
             className="w-10 h-10 rounded-full object-cover border border-[#222]"
           />
           <div className="text-white">
-            <h3 className="text-sm font-semibold">{user_profile?.username}</h3>
+            <h3 className="text-sm font-semibold">{post.user_profile?.username}</h3>
             <p className="text-xs text-gray-500">
               {moment(post.created_at).fromNow()}
             </p>
@@ -349,7 +353,8 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
             className="w-full h-full object-cover group-hover:brightness-90 transition duration-300"
             preload="metadata"
             loop
-            muted
+            autoPlay
+            controls
             playsInline
             // onLoadedMetadata={(e) => post.handleVideoLoadedMetadata(post.id, e.currentTarget)}
             onMouseEnter={(e) => e.currentTarget.play()}
@@ -429,7 +434,7 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
 
         <p className="text-sm font-semibold mb-1">{likesCount} likes</p>
         <p className="text-sm mb-2">
-          <span className="font-extrabold">{user_profile?.username}</span>{" "}
+          <span className="font-extrabold">{post.user_profile?.username}</span>{" "}
           {post?.description}
         </p>
 
@@ -467,7 +472,7 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
           <div className="flex w-full max-w-[60vw] h-[80vh] bg-[#262626] rounded-lg overflow-hidden shadow-2xl relative">
             <button
               onClick={() => setInput(false)}
-              className="absolute top-4 right-4 text-white text-xl hover:text-gray-300"
+              className='"absolute top-4 right-4 text-white text-xl hover:text-gray-300"
             >
               &times;
             </button>
@@ -510,8 +515,8 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-[2px]">
                     <div className="w-full h-full rounded-full bg-black overflow-hidden">
                       <img
-                        src={user_profile?.image}
-                        alt={user_profile?.username}
+                        src={post.user_profile?.image}
+                        alt={post.user_profile?.username}
                         className="w-full h-full object-cover rounded-full"
                       />
                     </div>
@@ -519,7 +524,7 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
                   <div className="flex flex-col">
                     <p>
                       <span className="font-semibold mr-2">
-                        {user_profile?.username}
+                        {post.user_profile?.username}
                       </span>
                     </p>
                   </div>
@@ -528,8 +533,8 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-[2px]">
                     <div className="w-full h-full rounded-full bg-black overflow-hidden">
                       <img
-                        src={user_profile?.image}
-                        alt={user_profile?.username}
+                        src={post.user_profile?.image}
+                        alt={post.user_profile?.username}
                         className="w-full h-full object-cover rounded-full"
                       />
                     </div>
@@ -549,8 +554,8 @@ export default function PostCard({ post, index, isNew }: PostCardProps) {
                     <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] p-[2px]">
                       <div className="w-full h-full rounded-full bg-black overflow-hidden">
                         <img
-                          src={user_profile?.image}
-                          alt={user_profile?.username}
+                          src={post.user_profile?.image}
+                          alt={post.user_profile?.username}
                           className="w-full h-full object-cover rounded-full"
                         />
                       </div>
